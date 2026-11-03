@@ -19,11 +19,11 @@ export function RsvpForm() {
   }
 
   return (
-    <section id="rsvp" className="bg-plum text-pearl">
-      <LaceEdge className="text-pearl" />
-      <div className="px-6 py-12 text-center">
+    <section id="rsvp" className="flex min-h-0 flex-1 flex-col bg-plum text-pearl">
+      <LaceEdge className="shrink-0 text-pearl" />
+      <div className="flex min-h-0 flex-1 flex-col justify-center overflow-y-auto px-6 py-4 text-center">
         <HeartLocket />
-        <h2 className="mt-4 font-serif text-5xl">RSVP</h2>
+        <h2 className="mt-2 font-serif text-4xl">RSVP</h2>
         <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-pearl/80">
           Nothing would make us happier than celebrating with you.
         </p>
@@ -38,7 +38,7 @@ export function RsvpForm() {
             </p>
           </div>
         ) : (
-          <form onSubmit={onSubmit} className="mt-8 space-y-4 text-left">
+          <form onSubmit={onSubmit} className="mt-5 space-y-3 text-left">
             <label className="block text-sm" htmlFor="rsvp-name">
               Your name
               <input
@@ -105,7 +105,7 @@ export function RsvpForm() {
               <textarea
                 id="rsvp-note"
                 name="note"
-                rows={4}
+                rows={2}
                 value={note}
                 onChange={(event) => setNote(event.target.value)}
                 className="mt-2 w-full border border-white/30 bg-white/10 px-4 py-3 outline-none"
@@ -130,7 +130,7 @@ export function RsvpForm() {
 
 function HeartLocket() {
   return (
-    <svg viewBox="0 0 80 96" className="mx-auto h-20 w-16 text-pearl" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
+    <svg viewBox="0 0 80 96" className="mx-auto h-14 w-12 text-pearl" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
       <path d="M40 28c-2-8 8-16 16-10 6 4 6 12 0 18" />
       <path d="M40 28c2-8-8-16-16-10-6 4-6 12 0 18" />
       <path d="M22 30c-10 8-12 24 18 40 30-16 28-32 18-40-6-4-12 0-18 8-6-8-12-12-18-8Z" />

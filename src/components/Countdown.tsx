@@ -31,9 +31,9 @@ export function Countdown() {
   const time = now === null ? null : remaining(now);
 
   return (
-    <section aria-label="Countdown to the wedding" className="bg-plum text-pearl">
+    <section aria-label="Countdown to the wedding" className="flex h-full flex-col bg-plum text-pearl">
       <LaceEdge className="text-pearl" />
-      <div className="relative px-6 py-10 text-center">
+      <div className="relative flex flex-1 flex-col justify-center px-6 py-10 text-center">
         <Ribbon className="absolute top-2 left-3 w-24" />
         <Ribbon className="absolute top-6 right-2 w-24 -scale-x-100" />
         <Ribbon className="absolute bottom-4 left-4 w-20 rotate-12" />

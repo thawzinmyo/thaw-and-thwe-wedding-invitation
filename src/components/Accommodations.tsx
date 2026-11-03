@@ -19,7 +19,7 @@ export function Accommodations() {
   }
 
   return (
-    <section id="stay" className="bg-paper px-6 py-12">
+    <section id="stay" className="invite-page flex h-full flex-col justify-center bg-paper px-6">
       <div className="text-center">
         <h2 className="font-serif text-4xl">Where to stay</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted">

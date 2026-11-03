@@ -16,14 +16,51 @@
   --font-script: var(--font-great-vibes), cursive;
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
-  min-height: 100vh;
   background: #e7dce3;
   color: var(--color-ink);
+}
+
+.invite-pager {
+  height: 100dvh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;
+}
+
+.invite-pager::-webkit-scrollbar {
+  display: none;
+}
+
+.invite-page {
+  height: 100%;
+  overflow: hidden;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@media (max-height: 760px) {
+  .hero-screen .hero-names {
+    margin-top: 0.5rem;
+    font-size: 3.25rem;
+  }
+
+  .hero-screen .hero-photo {
+    height: 9.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .hero-screen .ornament-inner {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
 }
 
 ::selection {
@@ -115,5 +152,9 @@ body {
   .veil-panel,
   .invite-seal {
     transition: none;
+  }
+
+  .invite-pager {
+    scroll-behavior: auto;
   }
 }

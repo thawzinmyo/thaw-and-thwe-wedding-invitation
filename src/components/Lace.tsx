@@ -170,7 +170,7 @@ export function OrnamentFrame({ children }: { children: React.ReactNode }) {
   return (
     <div className="mx-auto w-full max-w-sm px-5 py-8 text-center">
       <div className="rounded-[2.75rem] border border-lace p-2.5">
-        <div className="rounded-[2.15rem] border border-lace/80 px-6 pt-12 pb-12">{children}</div>
+        <div className="ornament-inner rounded-[2.15rem] border border-lace/80 px-6 pt-12 pb-12">{children}</div>
       </div>
     </div>
   );

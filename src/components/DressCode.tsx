@@ -3,7 +3,7 @@ import { wedding } from "@/wedding";
 
 export function DressCode() {
   return (
-    <section id="dress-code" className="bg-blush px-4 py-8 text-center">
+    <section id="dress-code" className="flex h-full items-center bg-blush px-4 text-center">
       <OrnamentFrame>
         <h2 className="font-serif text-4xl">Dress Code</h2>
         <p className="mt-2 font-script text-3xl text-plum">{wedding.dressCode}</p>
@@ -11,7 +11,7 @@ export function DressCode() {
           <PhotoSlot
             src={wedding.photos.dressCode}
             alt="Myanmar traditional dress for the wedding"
-            className="mx-auto h-80 w-52 object-center"
+            className="mx-auto h-64 max-h-[34dvh] w-48 object-center"
           >
             <span className="sr-only">Photo coming soon</span>
           </PhotoSlot>

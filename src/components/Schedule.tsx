@@ -30,15 +30,15 @@ const icons = {
 
 export function Schedule() {
   return (
-    <section id="schedule" className="bg-paper px-6 py-12">
+    <section id="schedule" className="flex h-full flex-col justify-center bg-paper px-6">
       <div className="text-center">
-        <LaceEdge />
-        <p className="mt-6 font-serif text-sm text-muted italic">A day to celebrate</p>
+        <LaceEdge className="text-lace" />
+        <p className="mt-4 font-serif text-sm text-muted italic">A day to celebrate</p>
         <h2 className="mt-2 font-serif text-4xl">The morning</h2>
       </div>
-      <ol className="relative mt-10">
+      <ol className="relative mt-8">
         {wedding.schedule.map((event, index) => (
-          <li key={event.title} className="grid grid-cols-[4.5rem_1.25rem_1fr] gap-3 pb-8">
+          <li key={event.title} className="grid grid-cols-[4.5rem_1.25rem_1fr] gap-3 pb-6 last:pb-0">
             <div className="text-center text-plum">
               {icons[event.icon as keyof typeof icons]}
               {event.time ? <p className="mt-2 font-serif text-sm leading-tight">{event.time}</p> : null}
