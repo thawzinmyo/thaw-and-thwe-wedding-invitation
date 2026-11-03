@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #fbf7f8;
+  --color-ink: #3f3640;
+  --color-muted: #6f6570;
+  --color-plum: #6d3454;
+  --color-pearl: #f8f3f6;
+  --color-lace: #c9bcc6;
+  --color-blush: #f3e8ee;
+}
+
+@theme inline {
+  --font-sans: var(--font-outfit), "Avenir Next", sans-serif;
+  --font-serif: var(--font-cormorant), Palatino, "Palatino Linotype", serif;
+  --font-script: var(--font-great-vibes), cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: #e7dce3;
+  color: var(--color-ink);
+}
+
+::selection {
+  background: #ead5e0;
+  color: var(--color-ink);
+}
+
+.invite-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: #f6eef2;
+  transition: opacity 700ms ease 650ms;
+}
+
+.invite-overlay.is-opening {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.veil-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  overflow: hidden;
+  transition: transform 1.15s cubic-bezier(0.55, 0.05, 0.25, 1);
+}
+
+.veil-art {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100vw;
+  max-width: none;
+}
+
+.veil-panel-left .veil-art {
+  left: 0;
+}
+
+.veil-panel-right .veil-art {
+  right: 0;
+}
+
+.veil-panel-left {
+  left: 0;
+}
+
+.veil-panel-right {
+  right: 0;
+}
+
+.invite-overlay.is-opening .veil-panel-left {
+  transform: translateX(-108%);
+}
+
+.invite-overlay.is-opening .veil-panel-right {
+  transform: translateX(108%);
+}
+
+.invite-seal {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  z-index: 3;
+  border: 0;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition:
+    opacity 500ms ease,
+    transform 600ms ease;
+}
+
+.invite-seal:hover,
+.invite-seal:focus-visible {
+  transform: translate(-50%, -50%) scale(1.04);
+  outline: none;
+}
+
+.invite-overlay.is-opening .invite-seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.85);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invite-overlay,
+  .veil-panel,
+  .invite-seal {
+    transition: none;
+  }
+}
