@@ -14,9 +14,9 @@ export const wedding = {
   locationNote:
     "The morning begins with a welcome drink and coffee. Lunch is a Thai buffet, and the celebration closes at 2:00 PM.",
   photos: {
-    cover: "/images/couple.png",
-    venue: "/images/venue.png",
-    dressCode: "/images/dress-code.png",
+    cover: "/images/couple.jpeg",
+    venue: "/images/venue.jpeg",
+    dressCode: "/images/dress-code.jpeg",
   },
   schedule: [
     {

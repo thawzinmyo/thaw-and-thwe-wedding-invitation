@@ -28,12 +28,12 @@ Photos live in `public/images/` as PNG files. Paths are set in `wedding.photos`:
 
 ```ts
 photos: {
-  cover: "/images/couple.png",
-  venue: "/images/venue.png",
-  dressCode: "/images/dress-code.png",
+  cover: "/images/couple.jpeg",
+  venue: "/images/venue.jpeg",
+  dressCode: "/images/dress-code.jpeg",
 }
 ```
 
-Add a dress-code image at `public/images/dress-code.png` and set that path when you have it. An optional song at `public/audio/background-song.mp3` plays after the seal opens.
+Add a dress-code image at `public/images/dress-code.jpeg` and set that path when you have it. An optional song at `public/audio/background-song.mp3` plays after the seal opens.
 
 The RSVP form thanks the guest in the browser. It does not send or store replies yet.

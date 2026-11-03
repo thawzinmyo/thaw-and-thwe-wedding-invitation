@@ -11,7 +11,7 @@ import { WeddingGift } from "@/components/WeddingGift";
 export default function HomePage() {
   return (
     <EnvelopeOverlay>
-      <main className="invite-pager mx-auto w-full max-w-md bg-paper sm:shadow-[0_30px_80px_rgba(70,30,50,0.18)]">
+      <main className="invite-pager mx-auto w-full max-w-md bg-paper sm:shadow-[0_30px_80px_rgba(120,60,70,0.18)]">
         <section className="invite-page" aria-label="The couple">
           <HeroSection />
         </section>
@@ -34,11 +34,8 @@ export default function HomePage() {
         <section className="invite-page">
           <WeddingGift />
         </section>
-        <section className="invite-page flex flex-col">
+        <section className="invite-page">
           <RsvpForm />
-          <footer className="shrink-0 bg-plum px-6 py-5 text-center font-serif text-sm tracking-[0.28em] text-pearl/80 uppercase">
-            Thaw & Thwe
-          </footer>
         </section>
       </main>
     </EnvelopeOverlay>

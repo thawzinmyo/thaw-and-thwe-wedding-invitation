@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LaceEdge } from "@/components/Lace";
+import { InvitationFrame } from "@/components/Lace";
 
 type Attendance = "yes" | "no";
 
@@ -19,27 +19,26 @@ export function RsvpForm() {
   }
 
   return (
-    <section id="rsvp" className="flex min-h-0 flex-1 flex-col bg-plum text-pearl">
-      <LaceEdge className="shrink-0 text-pearl" />
-      <div className="flex min-h-0 flex-1 flex-col justify-center overflow-y-auto px-6 py-4 text-center">
+    <section id="rsvp" className="h-full text-ink">
+      <InvitationFrame>
         <HeartLocket />
-        <h2 className="mt-2 font-serif text-4xl">RSVP</h2>
-        <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-pearl/80">
+        <h2 className="font-serif text-3xl">RSVP</h2>
+        <p className="mx-auto mt-1 max-w-xs text-xs leading-relaxed text-muted">
           Nothing would make us happier than celebrating with you.
         </p>
 
         {submitted ? (
-          <div className="mt-8 border border-white/25 px-6 py-8">
-            <p className="font-script text-4xl">Thank you</p>
-            <p className="mt-3 text-sm leading-relaxed text-pearl/80">
+          <div className="mt-4 border border-plum/20 px-4 py-6">
+            <p className="font-script text-4xl text-plum">Thank you</p>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
               {attendance === "yes"
                 ? `${name.trim()}, we cannot wait to celebrate with you.`
                 : `${name.trim()}, thank you for letting us know. You will be missed.`}
             </p>
           </div>
         ) : (
-          <form onSubmit={onSubmit} className="mt-5 space-y-3 text-left">
-            <label className="block text-sm" htmlFor="rsvp-name">
+          <form onSubmit={onSubmit} className="mt-2 w-full space-y-1.5 text-left">
+            <label className="block text-xs" htmlFor="rsvp-name">
               Your name
               <input
                 id="rsvp-name"
@@ -48,13 +47,13 @@ export function RsvpForm() {
                 value={name}
                 onChange={(event) => setName(event.target.value)}
                 autoComplete="name"
-                className="mt-2 w-full border border-white/30 bg-white/10 px-4 py-3 text-pearl outline-none placeholder:text-pearl/50"
+                className="mt-1 w-full border border-plum/25 bg-white/50 px-3 py-2 text-ink outline-none"
               />
             </label>
 
             <fieldset>
-              <legend className="text-sm">Will you be there?</legend>
-              <div className="mt-3 grid grid-cols-2 gap-3">
+              <legend className="text-xs">Will you be there?</legend>
+              <div className="mt-2 grid grid-cols-2 gap-2">
                 {(
                   [
                     ["yes", "Joyfully accept"],
@@ -63,8 +62,8 @@ export function RsvpForm() {
                 ).map(([value, label]) => (
                   <label
                     key={value}
-                    className={`cursor-pointer border px-3 py-3 text-center text-sm ${
-                      attendance === value ? "border-pearl bg-pearl text-plum" : "border-white/30"
+                    className={`cursor-pointer border px-2 py-2 text-center text-xs ${
+                      attendance === value ? "border-plum bg-plum text-pearl" : "border-plum/25"
                     }`}
                   >
                     <input
@@ -82,14 +81,14 @@ export function RsvpForm() {
             </fieldset>
 
             {attendance === "yes" && (
-              <label className="block text-sm" htmlFor="rsvp-guests">
+              <label className="block text-xs" htmlFor="rsvp-guests">
                 Number of guests
                 <select
                   id="rsvp-guests"
                   name="guests"
                   value={guests}
                   onChange={(event) => setGuests(event.target.value)}
-                  className="mt-2 w-full border border-white/30 bg-plum px-4 py-3 outline-none"
+                  className="mt-1 w-full border border-plum/25 bg-white/50 px-3 py-2 text-ink outline-none"
                 >
                   {["1", "2", "3", "4", "5", "6"].map((count) => (
                     <option key={count} value={count}>
@@ -100,7 +99,7 @@ export function RsvpForm() {
               </label>
             )}
 
-            <label className="block text-sm" htmlFor="rsvp-note">
+            <label className="block text-xs" htmlFor="rsvp-note">
               A note for the couple
               <textarea
                 id="rsvp-note"
@@ -108,29 +107,27 @@ export function RsvpForm() {
                 rows={2}
                 value={note}
                 onChange={(event) => setNote(event.target.value)}
-                className="mt-2 w-full border border-white/30 bg-white/10 px-4 py-3 outline-none"
+                className="mt-1 w-full border border-plum/25 bg-white/50 px-3 py-2 text-ink outline-none"
               />
             </label>
 
             <button
               type="submit"
-              className="w-full border border-pearl px-4 py-3 text-xs tracking-[0.22em] uppercase"
+              className="w-full border border-plum px-3 py-2 text-[0.65rem] tracking-[0.18em] text-plum uppercase"
             >
               Send reply
             </button>
-            <p className="text-center text-xs leading-relaxed text-pearl/70">
-              This preview keeps your reply on this page only, until a form service is connected.
-            </p>
           </form>
         )}
-      </div>
+        <p className="mt-2 font-serif text-xs tracking-[0.28em] text-plum uppercase">Thaw & Thwe</p>
+      </InvitationFrame>
     </section>
   );
 }
 
 function HeartLocket() {
   return (
-    <svg viewBox="0 0 80 96" className="mx-auto h-14 w-12 text-pearl" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
+    <svg viewBox="0 0 80 96" className="mx-auto h-8 w-7 text-plum" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
       <path d="M40 28c-2-8 8-16 16-10 6 4 6 12 0 18" />
       <path d="M40 28c2-8-8-16-16-10-6 4-6 12 0 18" />
       <path d="M22 30c-10 8-12 24 18 40 30-16 28-32 18-40-6-4-12 0-18 8-6-8-12-12-18-8Z" />

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LaceEdge } from "@/components/Lace";
+import { InvitationFrame } from "@/components/Lace";
 import { wedding } from "@/wedding";
 
 export function WeddingGift() {
@@ -19,12 +19,11 @@ export function WeddingGift() {
   }
 
   return (
-    <section id="gift" className="flex h-full flex-col bg-paper text-center">
-      <LaceEdge className="shrink-0 text-lace" />
-      <div className="flex flex-1 flex-col justify-center px-6">
-        <h2 className="font-serif text-4xl">Wedding Gift</h2>
-        <p className="mx-auto mt-6 max-w-xs font-serif text-3xl leading-snug">{gift.headline}</p>
-        <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-muted">{gift.note}</p>
+    <section id="gift" className="h-full">
+      <InvitationFrame>
+        <h2 className="font-serif text-3xl">Wedding Gift</h2>
+        <p className="mx-auto mt-3 max-w-xs font-serif text-2xl leading-snug">{gift.headline}</p>
+        <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-muted">{gift.note}</p>
         <dl className="mx-auto mt-6 max-w-xs space-y-2 text-sm">
           <div className="flex justify-between gap-4">
             <dt className="text-muted">Bank</dt>
@@ -46,7 +45,7 @@ export function WeddingGift() {
         >
           {copied ? "Copied" : "Copy account number"}
         </button>
-      </div>
+      </InvitationFrame>
     </section>
   );
 }

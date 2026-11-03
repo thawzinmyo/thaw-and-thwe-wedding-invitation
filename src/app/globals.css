@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #fbf7f8;
-  --color-ink: #3f3640;
-  --color-muted: #6f6570;
-  --color-plum: #6d3454;
-  --color-pearl: #f8f3f6;
-  --color-lace: #c9bcc6;
-  --color-blush: #f3e8ee;
+  --color-paper: #fceeee;
+  --color-ink: #6d3f48;
+  --color-muted: #9a6d74;
+  --color-plum: #8f555c;
+  --color-pearl: #fff6f5;
+  --color-lace: #e7c4bf;
+  --color-blush: #f8e4e2;
 }
 
 @theme inline {
@@ -23,7 +23,7 @@ body {
 }
 
 body {
-  background: #e7dce3;
+  background: #ecc8c5;
   color: var(--color-ink);
 }
 
@@ -48,13 +48,13 @@ body {
 
 @media (max-height: 760px) {
   .hero-screen .hero-names {
-    margin-top: 0.5rem;
-    font-size: 3.25rem;
+    margin-top: 0.25rem;
+    font-size: 2.75rem;
   }
 
   .hero-screen .hero-photo {
-    height: 9.5rem;
-    margin-top: 0.75rem;
+    height: 6.5rem;
+    margin-top: 0.5rem;
   }
 
   .hero-screen .ornament-inner {
@@ -64,7 +64,7 @@ body {
 }
 
 ::selection {
-  background: #ead5e0;
+  background: #f3d4d0;
   color: var(--color-ink);
 }
 
@@ -72,7 +72,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 50;
-  background: #f6eef2;
+  background: #f8e4e2;
   transition: opacity 700ms ease 650ms;
 }
 

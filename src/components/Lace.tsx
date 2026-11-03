@@ -26,40 +26,26 @@ export function LaceEdge({ flip = false, className = "" }: { flip?: boolean; cla
 }
 
 export function WaxSealMark() {
-  const leaves = Array.from({ length: 18 }, (_, index) => {
-    const angle = (index / 18) * Math.PI * 2 - Math.PI / 2;
-    const cx = 70 + Math.cos(angle) * 36;
-    const cy = 88 + Math.sin(angle) * 50;
-    const turn = (angle * 180) / Math.PI + 90;
-    return (
-      <ellipse
-        key={index}
-        cx={cx}
-        cy={cy}
-        rx="2.4"
-        ry="6.5"
-        fill="none"
-        stroke="#b7a8b3"
-        strokeWidth="1.1"
-        transform={`rotate(${turn} ${cx} ${cy})`}
-      />
-    );
+  const pearls = Array.from({ length: 22 }, (_, index) => {
+    const angle = (index / 22) * Math.PI * 2 - Math.PI / 2;
+    return <circle key={index} cx={70 + Math.cos(angle) * 46} cy={70 + Math.sin(angle) * 46} r="1.7" fill="#f7f3f5" stroke="#c3b4bc" strokeWidth="0.6" />;
   });
 
   return (
-    <svg viewBox="0 0 140 176" className="h-40 w-32 drop-shadow-md" aria-hidden="true">
-      <ellipse cx="70" cy="88" rx="58" ry="76" fill="#f7f2f5" stroke="#d5c9d0" strokeWidth="3" />
-      <ellipse cx="70" cy="88" rx="46" ry="62" fill="none" stroke="#e4dbe0" strokeWidth="6" />
-      {leaves}
-      <text
-        x="70"
-        y="96"
-        textAnchor="middle"
-        fill="#8d7c88"
-        fontFamily="Palatino, 'Palatino Linotype', serif"
-        fontSize="20"
-      >
-        T & T
+    <svg viewBox="0 0 140 140" className="h-32 w-32 drop-shadow-[0_10px_18px_rgba(90,60,75,0.18)]" aria-hidden="true">
+      <ellipse cx="70" cy="74" rx="48" ry="18" fill="#000" opacity="0.06" />
+      <circle cx="70" cy="70" r="54" fill="#f4eef2" stroke="#ddd2d8" strokeWidth="2" />
+      <circle cx="70" cy="70" r="46" fill="none" stroke="#e7dce3" strokeWidth="5" />
+      <circle cx="70" cy="70" r="40" fill="none" stroke="#cfc1c8" strokeWidth="0.8" />
+      {pearls}
+      <text x="70" y="66" textAnchor="middle" fill="#8a7682" fontFamily="Palatino, 'Palatino Linotype', serif" fontSize="15" fontStyle="italic">
+        T
+      </text>
+      <text x="70" y="80" textAnchor="middle" fill="#b3a3ab" fontFamily="Palatino, 'Palatino Linotype', serif" fontSize="9">
+        &
+      </text>
+      <text x="70" y="96" textAnchor="middle" fill="#8a7682" fontFamily="Palatino, 'Palatino Linotype', serif" fontSize="15" fontStyle="italic">
+        T
       </text>
     </svg>
   );
@@ -81,53 +67,52 @@ export function Swans() {
 }
 
 export function LaceVeil() {
-  const flowers = [];
-  for (let row = 0; row < 8; row += 1) {
-    for (let col = 0; col < 4; col += 1) {
-      const x = 48 + col * 98 + (row % 2) * 28;
-      const y = 70 + row * 100;
-      const inSeal = x > 120 && x < 270 && y > 300 && y < 560;
-      if (!inSeal) flowers.push({ x, y, key: `${row}-${col}` });
-    }
-  }
+  const leftSprigs = [70, 150, 240, 340, 460, 560, 660, 760];
 
   return (
     <svg viewBox="0 0 390 844" preserveAspectRatio="xMidYMid slice" className="veil-art" aria-hidden="true">
-      <rect width="390" height="844" fill="#f3e8ee" />
-      <path d={edgeWave(22, 1)} fill="none" stroke="#c9bcc6" strokeWidth="1.2" />
-      <path d={edgeWave(368, -1)} fill="none" stroke="#c9bcc6" strokeWidth="1.2" />
-      <path d={edgeWave(36, 1)} fill="none" stroke="#c9bcc6" strokeWidth="0.7" />
-      <path d={edgeWave(354, -1)} fill="none" stroke="#c9bcc6" strokeWidth="0.7" />
-      {Array.from({ length: 15 }, (_, index) => {
-        const y = 36 + index * 54;
-        const bulge = index % 2 === 0 ? 14 : 0;
-        return (
-          <g key={index} fill="#fbf8f9" stroke="#c9bcc6">
-            <circle cx={22 + bulge} cy={y} r="3.3" />
-            <circle cx={368 - bulge} cy={y} r="3.3" />
-          </g>
-        );
-      })}
-      {flowers.map((flower) => (
-        <g key={flower.key} transform={`translate(${flower.x} ${flower.y})`} fill="none" stroke="#c9bcc6" strokeWidth="1">
-          <circle cx="0" cy="-8" r="4" />
-          <circle cx="7" cy="-2" r="4" />
-          <circle cx="4" cy="7" r="4" />
-          <circle cx="-5" cy="6" r="4" />
-          <circle cx="-7" cy="-2" r="4" />
-          <circle cx="0" cy="0" r="2" fill="#c9bcc6" stroke="none" />
+      <rect width="390" height="844" fill="#f8e4e2" />
+      <ellipse cx="195" cy="430" rx="150" ry="280" fill="#fceeee" />
+      <path d={curtain(0)} fill="#f3d4d0" stroke="#e7c4bf" strokeWidth="1" />
+      <path d={curtain(390)} fill="#f3d4d0" stroke="#e7c4bf" strokeWidth="1" transform="translate(390 0) scale(-1 1)" />
+      <path d="M0 0h390v150C300 210 250 70 195 130 140 70 90 210 0 150Z" fill="#f3d4d0" stroke="#e7c4bf" strokeWidth="1" />
+      {leftSprigs.map((y) => (
+        <g key={y}>
+          <Sprig x={28} y={y} />
+          <Sprig x={362} y={y} flip />
+          <Pearl x={78} y={y - 28} />
+          <Pearl x={312} y={y - 28} />
+        </g>
+      ))}
+      {Array.from({ length: 9 }, (_, index) => (
+        <g key={index}>
+          <Pearl x={36 + index * 40} y={28 + (index % 2) * 16} />
+          <Sprig x={24 + index * 42} y={58} scale={0.7} />
         </g>
       ))}
     </svg>
   );
 }
 
-function edgeWave(x: number, direction: number) {
-  let path = `M${x} 8`;
-  for (let y = 8; y < 836; y += 54) {
-    path += ` Q${x + direction * 16} ${y + 27} ${x} ${y + 54}`;
-  }
-  return path;
+function curtain(x: number) {
+  return `M${x} 0 L${x} 844 L${x + 92} 844 C${x + 120} 760 ${x + 48} 720 ${x + 96} 660 C${x + 140} 600 ${x + 54} 560 ${x + 100} 500 C${x + 146} 430 ${x + 58} 390 ${x + 108} 320 C${x + 150} 250 ${x + 70} 210 ${x + 124} 140 C${x + 160} 80 ${x + 90} 36 ${x + 150} 0 Z`;
+}
+
+function Sprig({ x, y, scale = 1, flip = false }: { x: number; y: number; scale?: number; flip?: boolean }) {
+  return (
+    <g transform={`translate(${x} ${y}) scale(${flip ? -scale : scale} ${scale})`} fill="none" stroke="#c4b3bb" strokeWidth="0.9">
+      <path d="M0 8c10-16 22-22 30-10" />
+      <circle cx="0" cy="-2" r="3.4" />
+      <circle cx="8" cy="3" r="2.8" />
+      <circle cx="-7" cy="4" r="2.5" />
+      <circle cx="2" cy="9" r="2.2" />
+      <circle cx="1" cy="3" r="1.2" fill="#ddd2d8" stroke="none" />
+    </g>
+  );
+}
+
+function Pearl({ x, y }: { x: number; y: number }) {
+  return <circle cx={x} cy={y} r="3.1" fill="#fbf8f9" stroke="#d5c8cf" strokeWidth="0.7" />;
 }
 
 export function VenueMark() {
@@ -166,11 +151,50 @@ export function PhotoSlot({
   );
 }
 
+const frameSrc = "/images/Dusty%20Rose%20Lace%20Invitation%20Frame.png";
+
+export function InvitationFrame({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex h-full items-center justify-center bg-[#f6d8d4]">
+      <div className="relative aspect-[1024/1536] w-[min(100%,calc(100dvh*1024/1536))]">
+        <img src={frameSrc} alt="" className="pointer-events-none h-full w-full select-none" />
+        <div className="absolute inset-[15%_15%_14%_15%] flex flex-col items-center justify-center overflow-y-auto text-center">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function OrnamentFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto w-full max-w-sm px-5 py-8 text-center">
-      <div className="rounded-[2.75rem] border border-lace p-2.5">
-        <div className="ornament-inner rounded-[2.15rem] border border-lace/80 px-6 pt-12 pb-12">{children}</div>
+    <div className="relative mx-auto flex h-full w-full max-w-sm items-center px-2 py-3 text-center">
+      <div className="relative h-full w-full">
+        <svg viewBox="0 0 320 640" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full" fill="none" aria-hidden="true">
+          <path d="M46 108C46 36 92 22 160 22s114 14 114 86v390c0 86-48 112-114 112S46 584 46 498Z" stroke="#cbbec6" strokeWidth="1.3" />
+          <path d="M58 118C58 52 98 38 160 38s102 14 102 80v372c0 74-42 98-102 98s-102-24-102-98Z" stroke="#cbbec6" strokeWidth="0.7" />
+        </svg>
+        <span className="pointer-events-none absolute top-6 left-1">
+          <svg viewBox="0 0 48 48" className="h-12 w-12" aria-hidden="true">
+            <Sprig x={16} y={18} />
+          </svg>
+        </span>
+        <span className="pointer-events-none absolute top-6 right-2">
+          <svg viewBox="0 0 48 48" className="h-12 w-12 -scale-x-100" aria-hidden="true">
+            <Sprig x={16} y={20} />
+          </svg>
+        </span>
+        <span className="pointer-events-none absolute bottom-8 left-2">
+          <svg viewBox="0 0 48 48" className="h-12 w-12" aria-hidden="true">
+            <Sprig x={16} y={16} />
+          </svg>
+        </span>
+        <span className="pointer-events-none absolute right-2 bottom-8">
+          <svg viewBox="0 0 48 48" className="h-12 w-12 -scale-x-100" aria-hidden="true">
+            <Sprig x={16} y={16} />
+          </svg>
+        </span>
+        <div className="ornament-inner relative z-10 flex h-full flex-col items-center justify-center px-8 py-12">{children}</div>
       </div>
     </div>
   );

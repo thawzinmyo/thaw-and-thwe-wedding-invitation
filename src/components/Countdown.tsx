@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { LaceEdge } from "@/components/Lace";
+import { InvitationFrame } from "@/components/Lace";
 import { wedding } from "@/wedding";
 
 const target = new Date(wedding.dateISO).getTime();
@@ -31,13 +31,8 @@ export function Countdown() {
   const time = now === null ? null : remaining(now);
 
   return (
-    <section aria-label="Countdown to the wedding" className="flex h-full flex-col bg-plum text-pearl">
-      <LaceEdge className="text-pearl" />
-      <div className="relative flex flex-1 flex-col justify-center px-6 py-10 text-center">
-        <Ribbon className="absolute top-2 left-3 w-24" />
-        <Ribbon className="absolute top-6 right-2 w-24 -scale-x-100" />
-        <Ribbon className="absolute bottom-4 left-4 w-20 rotate-12" />
-        <Ribbon className="absolute right-3 bottom-2 w-20 -scale-x-100" />
+    <section aria-label="Countdown to the wedding" className="h-full text-ink">
+      <InvitationFrame>
         <h2 className="font-serif text-4xl">Countdown</h2>
         {time?.done ? (
           <p className="mt-6 font-script text-4xl">Today we celebrate</p>
@@ -53,18 +48,7 @@ export function Countdown() {
             ))}
           </ul>
         )}
-      </div>
-      <LaceEdge flip className="text-pearl" />
+      </InvitationFrame>
     </section>
-  );
-}
-
-function Ribbon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 120 48" className={`text-pearl/70 ${className ?? ""}`} fill="none" stroke="currentColor" strokeWidth="1" aria-hidden="true">
-      <path d="M8 30c18-16 28-6 40 2 10 6 22-2 36-14" />
-      <path d="M34 24c-8 2-14 10-10 16 6-6 14-8 20-4" />
-      <path d="M58 20c6 8 4 14-2 16" />
-    </svg>
   );
 }
