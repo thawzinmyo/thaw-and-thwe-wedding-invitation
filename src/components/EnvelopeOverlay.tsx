@@ -86,7 +86,7 @@ export function EnvelopeOverlay({ children }: { children: React.ReactNode }) {
             <WaxSealMark />
           </button>
           <p className="absolute inset-x-0 bottom-10 z-10 text-center text-xs tracking-[0.32em] text-muted uppercase">
-            Tap the seal
+            Tap the ribbon
           </p>
         </div>
       )}

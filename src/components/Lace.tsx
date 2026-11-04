@@ -26,28 +26,68 @@ export function LaceEdge({ flip = false, className = "" }: { flip?: boolean; cla
 }
 
 export function WaxSealMark() {
-  const pearls = Array.from({ length: 22 }, (_, index) => {
-    const angle = (index / 22) * Math.PI * 2 - Math.PI / 2;
-    return <circle key={index} cx={70 + Math.cos(angle) * 46} cy={70 + Math.sin(angle) * 46} r="1.7" fill="#f7f3f5" stroke="#c3b4bc" strokeWidth="0.6" />;
-  });
+  const ribbon = {
+    fill: "none" as const,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
 
   return (
-    <svg viewBox="0 0 140 140" className="h-32 w-32 drop-shadow-[0_10px_18px_rgba(90,60,75,0.18)]" aria-hidden="true">
-      <ellipse cx="70" cy="74" rx="48" ry="18" fill="#000" opacity="0.06" />
-      <circle cx="70" cy="70" r="54" fill="#f4eef2" stroke="#ddd2d8" strokeWidth="2" />
-      <circle cx="70" cy="70" r="46" fill="none" stroke="#e7dce3" strokeWidth="5" />
-      <circle cx="70" cy="70" r="40" fill="none" stroke="#cfc1c8" strokeWidth="0.8" />
-      {pearls}
-      <text x="70" y="66" textAnchor="middle" fill="#8a7682" fontFamily="Palatino, 'Palatino Linotype', serif" fontSize="15" fontStyle="italic">
-        T
-      </text>
-      <text x="70" y="80" textAnchor="middle" fill="#b3a3ab" fontFamily="Palatino, 'Palatino Linotype', serif" fontSize="9">
-        &
-      </text>
-      <text x="70" y="96" textAnchor="middle" fill="#8a7682" fontFamily="Palatino, 'Palatino Linotype', serif" fontSize="15" fontStyle="italic">
-        T
-      </text>
+    <svg viewBox="0 0 240 280" className="h-52 w-44" aria-hidden="true">
+      <defs>
+        <linearGradient id="ribbon-light" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#fff6f4" />
+          <stop offset="0.4" stopColor="#f3c9c6" />
+          <stop offset="1" stopColor="#d08b92" />
+        </linearGradient>
+        <linearGradient id="ribbon-deep" x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#e8b4b6" />
+          <stop offset="0.5" stopColor="#b56d78" />
+          <stop offset="1" stopColor="#8f555c" />
+        </linearGradient>
+      </defs>
+      <ellipse cx="120" cy="258" rx="54" ry="8" fill="#6d3f48" opacity="0.12" />
+      <path d="M112 150 C88 186 64 214 52 236" stroke="url(#ribbon-deep)" strokeWidth="20" {...ribbon} />
+      <path d="M52 228 L30 258" stroke="url(#ribbon-deep)" strokeWidth="14" {...ribbon} />
+      <path d="M56 232 L74 262" stroke="url(#ribbon-light)" strokeWidth="14" {...ribbon} />
+      <path d="M128 150 C152 186 176 214 188 236" stroke="url(#ribbon-light)" strokeWidth="20" {...ribbon} />
+      <path d="M188 228 L210 258" stroke="url(#ribbon-light)" strokeWidth="14" {...ribbon} />
+      <path d="M184 232 L166 262" stroke="url(#ribbon-deep)" strokeWidth="14" {...ribbon} />
+      <path
+        d="M120 146 C108 104 62 78 42 96 C18 118 28 162 72 158 C96 156 112 150 120 146"
+        stroke="url(#ribbon-light)"
+        strokeWidth="22"
+        {...ribbon}
+      />
+      <path
+        d="M120 146 C132 104 178 78 198 96 C222 118 212 162 168 158 C144 156 128 150 120 146"
+        stroke="url(#ribbon-deep)"
+        strokeWidth="22"
+        {...ribbon}
+      />
+      <path
+        d="M116 132 C100 108 68 96 52 110"
+        stroke="#fff6f5"
+        strokeWidth="5"
+        opacity="0.7"
+        {...ribbon}
+      />
+      <path d="M128 124 C150 104 176 108 190 122" stroke="#fff6f5" strokeWidth="4" opacity="0.4" {...ribbon} />
+      <path d="M104 132 C108 154 132 154 136 132 C132 146 108 146 104 132 Z" fill="#8f555c" />
+      <path d="M110 134 C112 148 128 148 130 134 C126 142 114 142 110 134 Z" fill="#f6d5d0" />
+      <Sparkle x={36} y={62} />
+      <Sparkle x={196} y={48} scale={0.72} />
+      <Sparkle x={168} y={28} scale={0.5} />
     </svg>
+  );
+}
+
+function Sparkle({ x, y, scale = 1 }: { x: number; y: number; scale?: number }) {
+  return (
+    <g transform={`translate(${x} ${y}) scale(${scale})`}>
+      <circle r="9" fill="#fff6f5" opacity="0.85" />
+      <path d="M0 -8 L1.6 -1.6 L8 0 L1.6 1.6 L0 8 L-1.6 1.6 L-8 0 L-1.6 -1.6 Z" fill="#fffaf4" />
+    </g>
   );
 }
 
@@ -115,6 +155,60 @@ function Pearl({ x, y }: { x: number; y: number }) {
   return <circle cx={x} cy={y} r="3.1" fill="#fbf8f9" stroke="#d5c8cf" strokeWidth="0.7" />;
 }
 
+export function ThaiMotif({ kind = "wat", className = "h-10 w-10" }: { kind?: "wat" | "boat" | "temple" | "house"; className?: string }) {
+  return (
+    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
+      {kind === "wat" ? <WatArun x={32} y={54} scale={1} /> : null}
+      {kind === "boat" ? <Longtail x={6} y={34} /> : null}
+      {kind === "temple" ? <TempleRoof x={32} y={54} /> : null}
+      {kind === "house" ? <GlassHouse x={8} y={50} scale={0.72} /> : null}
+    </svg>
+  );
+}
+
+function WatArun({ x, y, scale = 1 }: { x: number; y: number; scale?: number }) {
+  return (
+    <g transform={`translate(${x} ${y}) scale(${scale})`} fill="#f6d5cf" stroke="#7a4550" strokeWidth="1.7" strokeLinejoin="round">
+      <path d="M0 2 L-16 -2 L-13 -12 L-18 -14 L-12 -24 L-15 -26 L-8 -36 L-4 -28 L0 -46 L4 -28 L8 -36 L15 -26 L12 -24 L18 -14 L13 -12 L16 -2 Z" />
+      <path d="M-7 -16h14M-5 -26h10" stroke="#b88858" fill="none" />
+      <circle cx="0" cy="-48" r="2" fill="#b88858" stroke="none" />
+    </g>
+  );
+}
+
+function TempleRoof({ x, y, scale = 1 }: { x: number; y: number; scale?: number }) {
+  return (
+    <g transform={`translate(${x} ${y}) scale(${scale})`} fill="#f3d0cb" stroke="#7a4550" strokeWidth="1.7" strokeLinejoin="round">
+      <path d="M0 0 L-16 -4 L0 -16 L16 -4 Z" />
+      <path d="M-10 -6 L0 -20 L10 -6" />
+      <path d="M0 -20 V-28" />
+      <circle cx="0" cy="-30" r="2" fill="#b88858" stroke="none" />
+    </g>
+  );
+}
+
+function Longtail({ x, y }: { x: number; y: number }) {
+  return (
+    <g transform={`translate(${x} ${y})`} fill="#fff6f4" stroke="#7a4550" strokeWidth="1.7" strokeLinejoin="round">
+      <path d="M0 8 L34 2 L40 10 L6 14 Z" />
+      <path d="M16 8 V2 h8 v6" />
+      <path d="M34 4 L52 -6" fill="none" />
+    </g>
+  );
+}
+
+function GlassHouse({ x, y, scale = 1 }: { x: number; y: number; scale?: number }) {
+  return (
+    <g transform={`translate(${x} ${y}) scale(${scale})`} fill="#fff8f6" stroke="#8f555c" strokeWidth="1.2" strokeLinejoin="round">
+      <path d="M8 0 H56 V-28 H8 Z" />
+      <path d="M4 -28 H60 L32 -48 Z" />
+      <path d="M24 0 V-16 H40 V0" />
+      <path d="M8 -14 H56 M20 -28 V-14 M36 -28 V-14" fill="none" />
+      <path d="M32 -48 V-28" fill="none" />
+    </g>
+  );
+}
+
 export function VenueMark() {
   return (
     <svg viewBox="0 0 180 110" className="h-28 w-44 text-ink/75" fill="none" stroke="currentColor" strokeWidth="1.15" aria-hidden="true">
@@ -156,9 +250,9 @@ const frameSrc = "/images/Dusty%20Rose%20Lace%20Invitation%20Frame.png";
 export function InvitationFrame({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex h-full items-center justify-center bg-[#f6d8d4]">
-      <div className="relative aspect-[1024/1536] w-[min(100%,calc(100dvh*1024/1536))]">
+      <div className="relative aspect-[1024/1536] w-[min(100%,calc((100dvh-6rem)*1024/1536))]">
         <img src={frameSrc} alt="" className="pointer-events-none h-full w-full select-none" />
-        <div className="absolute inset-[15%_15%_14%_15%] flex flex-col items-center justify-center overflow-y-auto text-center">
+        <div className="absolute inset-[15%_15%_14%_15%] flex flex-col items-center justify-center overflow-hidden text-center">
           {children}
         </div>
       </div>

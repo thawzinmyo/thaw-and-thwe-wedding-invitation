@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { InvitationFrame } from "@/components/Lace";
+import { LaceCanopy } from "@/components/Frames";
+import { GiftArt } from "@/components/RomanceArt";
 import { wedding } from "@/wedding";
 
 export function WeddingGift() {
@@ -20,32 +21,24 @@ export function WeddingGift() {
 
   return (
     <section id="gift" className="h-full">
-      <InvitationFrame>
-        <h2 className="font-serif text-3xl">Wedding Gift</h2>
-        <p className="mx-auto mt-3 max-w-xs font-serif text-2xl leading-snug">{gift.headline}</p>
-        <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-muted">{gift.note}</p>
-        <dl className="mx-auto mt-6 max-w-xs space-y-2 text-sm">
-          <div className="flex justify-between gap-4">
-            <dt className="text-muted">Bank</dt>
-            <dd>{gift.bank}</dd>
-          </div>
-          <div className="flex justify-between gap-4">
-            <dt className="text-muted">Name</dt>
-            <dd>{gift.accountName}</dd>
-          </div>
-          <div>
-            <dt className="text-muted">Account</dt>
-            <dd className="mt-1 font-serif text-lg tracking-wider">{gift.accountNumber}</dd>
-          </div>
-        </dl>
+      <LaceCanopy>
+        <h2 className="font-serif text-5xl">Wedding Gift</h2>
+        <p className="mx-auto mt-4 max-w-xs font-serif text-2xl leading-snug italic">{gift.headline}</p>
+        <p className="mx-auto mt-3 max-w-xs font-serif text-lg leading-snug text-ink/75">{gift.note}</p>
+        <div className="mx-auto mt-6">
+          <p className="text-[0.65rem] tracking-[0.22em] text-muted uppercase">{gift.bank}</p>
+          <p className="mt-1 font-serif text-xl">{gift.accountName}</p>
+          <p className="mt-2 font-serif text-lg tracking-[0.16em]">{gift.accountNumber}</p>
+        </div>
         <button
           type="button"
           onClick={copyNumber}
-          className="mt-6 border border-plum/30 px-5 py-2 text-xs tracking-[0.18em] text-plum uppercase"
+          className="mt-6 rounded-full border border-plum/30 px-6 py-2.5 text-[0.65rem] tracking-[0.18em] text-plum uppercase"
         >
           {copied ? "Copied" : "Copy account number"}
         </button>
-      </InvitationFrame>
+        <GiftArt />
+      </LaceCanopy>
     </section>
   );
 }

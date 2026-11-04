@@ -1,27 +1,20 @@
-import { InvitationFrame, PhotoSlot, Swans, VenueMark } from "@/components/Lace";
+import { FittedPhoto } from "@/components/Frames";
+import { InvitationFrame } from "@/components/Lace";
 import { wedding } from "@/wedding";
 
 export function HeroSection() {
   return (
     <header className="hero-screen h-full">
       <InvitationFrame>
-        <p className="font-serif text-xs leading-tight text-muted italic">Together with their families</p>
-        <h1 className="hero-names mt-2 font-script text-5xl leading-none text-plum">
+        <p className="font-serif text-sm text-muted italic">Together with their families</p>
+        <h1 className="hero-names mt-1 font-script text-[3.4rem] leading-none text-plum">
           {wedding.partnerOne}
-          <span className="my-0.5 block font-serif text-2xl text-ink/70">&</span>
+          <span className="my-0.5 block font-serif text-2xl text-ink/60">&</span>
           {wedding.partnerTwo}
         </h1>
-        <p className="mt-2 font-serif text-base tracking-[0.18em]">{wedding.dateNumeric}</p>
-        <p className="mt-1 text-[0.65rem] tracking-[0.22em] text-plum uppercase">{wedding.timeLine}</p>
-        <PhotoSlot
-          src={wedding.photos.cover}
-          alt={`${wedding.partnerOne} and ${wedding.partnerTwo}`}
-          className="hero-photo mx-auto mt-3 h-32 w-24 rounded-t-full object-top"
-        >
-          <VenueMark />
-        </PhotoSlot>
-        <p className="mt-2 font-serif text-lg leading-tight">{wedding.venueName}</p>
-        <p className="mt-1 text-[0.65rem] tracking-[0.16em] text-muted uppercase">{wedding.dateLine}</p>
+        <p className="mt-4 font-serif text-base tracking-[0.12em]">{wedding.dateDisplay}</p>
+        <p className="mt-1 font-serif text-xl leading-tight">{wedding.venueName}</p>
+        <p className="mt-1 text-[0.68rem] tracking-[0.28em] text-muted uppercase">{wedding.city}</p>
       </InvitationFrame>
     </header>
   );
@@ -29,13 +22,9 @@ export function HeroSection() {
 
 export function LetterSection() {
   return (
-    <InvitationFrame>
-      <Swans />
-      <h2 className="mt-3 font-serif text-3xl leading-tight">
-        Together with
-        <span className="block italic">their families</span>
-      </h2>
-      <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-muted">{wedding.message}</p>
-    </InvitationFrame>
+    <FittedPhoto src="/images/ring_flower.jpeg" insetClass="inset-[24%_16%_28%_16%] px-2">
+      <p className="font-script text-5xl leading-none text-plum">You are invited</p>
+      <p className="mx-auto mt-4 max-w-[15rem] font-serif text-lg leading-snug text-ink italic">{wedding.message}</p>
+    </FittedPhoto>
   );
 }

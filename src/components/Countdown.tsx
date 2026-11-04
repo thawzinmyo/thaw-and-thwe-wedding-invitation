@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { InvitationFrame } from "@/components/Lace";
+import { CountdownArt } from "@/components/RomanceArt";
 import { wedding } from "@/wedding";
 
 const target = new Date(wedding.dateISO).getTime();
@@ -31,24 +31,31 @@ export function Countdown() {
   const time = now === null ? null : remaining(now);
 
   return (
-    <section aria-label="Countdown to the wedding" className="h-full text-ink">
-      <InvitationFrame>
-        <h2 className="font-serif text-4xl">Countdown</h2>
+    <section aria-label="Countdown to the wedding" className="flex h-full flex-col items-center overflow-hidden bg-[#f0dcc0] px-6 pt-8 text-center text-[#4e2e36]">
+      <div className="w-full max-w-xs">
+        <p className="font-script text-5xl text-[#4e2e36]">Until the day</p>
+        <div className="mx-auto mt-4 flex items-center justify-center gap-3 text-[#8d6248]" aria-hidden="true">
+          <span className="h-px w-10 bg-current" />
+          <span className="size-1.5 rotate-45 bg-current" />
+          <span className="h-px w-10 bg-current" />
+        </div>
         {time?.done ? (
-          <p className="mt-6 font-script text-4xl">Today we celebrate</p>
+          <p className="mt-8 font-serif text-3xl text-[#4e2e36] italic">Today we celebrate</p>
         ) : (
-          <ul className="relative mt-6 grid grid-cols-4 gap-2">
+          <ul className="mt-8 grid grid-cols-4">
             {units.map((unit) => (
-              <li key={unit}>
-                <p className="font-serif text-4xl tabular-nums">
-                  {time ? String(time[unit]).padStart(unit === "days" ? 1 : 2, "0") : "--"}
+              <li key={unit} className="border-l border-[#8d6248]/35 px-1 first:border-l-0">
+                <p className="font-serif text-4xl text-[#4e2e36] tabular-nums">
+                  {time ? String(time[unit]).padStart(2, "0") : "--"}
                 </p>
-                <p className="mt-1 text-[0.6rem] tracking-[0.16em] uppercase opacity-80">{unit}</p>
+                <p className="mt-1 text-[0.58rem] tracking-[0.16em] text-[#6d4638] uppercase">{unit}</p>
               </li>
             ))}
           </ul>
         )}
-      </InvitationFrame>
+        <p className="mt-8 font-serif text-lg tracking-[0.08em] text-[#4e2e36]">{wedding.dateDisplay}</p>
+      </div>
+      <CountdownArt />
     </section>
   );
 }

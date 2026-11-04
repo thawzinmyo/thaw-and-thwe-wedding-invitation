@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { InvitationFrame } from "@/components/Lace";
+import { OpenPage, PageLace } from "@/components/Frames";
 import { wedding } from "@/wedding";
 
 export function Accommodations() {
@@ -21,7 +21,8 @@ export function Accommodations() {
 
   return (
     <section id="stay" className="invite-page h-full">
-      <InvitationFrame>
+      <PageLace motif="temple">
+      <OpenPage>
       <div className="text-center">
         <h2 className="font-serif text-4xl">Where to stay</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted">
@@ -47,7 +48,8 @@ export function Accommodations() {
           </article>
         ))}
       </div>
-      </InvitationFrame>
+      </OpenPage>
+      </PageLace>
     </section>
   );
 }
