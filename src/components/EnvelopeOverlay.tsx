@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { LaceVeil, WaxSealMark } from "@/components/Lace";
+import { LaceVeil } from "@/components/Lace";
 import { wedding } from "@/wedding";
 
 type Phase = "sealed" | "opening" | "open";
@@ -75,18 +75,28 @@ export function EnvelopeOverlay({ children }: { children: React.ReactNode }) {
     <>
       <div inert={phase === "open" ? undefined : true}>{children}</div>
       {phase !== "open" && (
-        <div className={`invite-overlay${phase === "opening" ? " is-opening" : ""}`}>
+        <div
+          className={`invite-overlay cursor-pointer${phase === "opening" ? " is-opening" : ""}`}
+          role="button"
+          tabIndex={0}
+          autoFocus
+          aria-label="Open the invitation"
+          onClick={openInvite}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              openInvite();
+            }
+          }}
+        >
           <div className="veil-panel veil-panel-left">
             <LaceVeil />
           </div>
           <div className="veil-panel veil-panel-right">
             <LaceVeil />
           </div>
-          <button type="button" className="invite-seal" onClick={openInvite} aria-label="Open the invitation" autoFocus>
-            <WaxSealMark />
-          </button>
-          <p className="absolute inset-x-0 bottom-10 z-10 text-center text-xs tracking-[0.32em] text-muted uppercase">
-            Tap the ribbon
+          <p className="pointer-events-none absolute inset-x-8 bottom-6 z-10 rounded-full bg-[#f6ead8]/85 py-2 text-center text-[0.68rem] tracking-[0.32em] text-plum uppercase">
+            Tap to open
           </p>
         </div>
       )}

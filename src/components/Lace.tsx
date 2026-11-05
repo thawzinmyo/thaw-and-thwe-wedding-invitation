@@ -33,7 +33,7 @@ export function WaxSealMark() {
   };
 
   return (
-    <svg viewBox="0 0 240 280" className="h-52 w-44" aria-hidden="true">
+    <svg viewBox="0 0 240 280" className="h-36 w-32" aria-hidden="true">
       <defs>
         <linearGradient id="ribbon-light" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#fff6f4" />
@@ -108,115 +108,13 @@ export function Swans() {
 
 export function LaceVeil() {
   return (
-    <svg viewBox="0 0 390 844" preserveAspectRatio="xMidYMid slice" className="veil-art" aria-hidden="true">
-      <rect width="390" height="844" fill="#f4efe6" />
-      <FloralEdge />
-      <g transform="translate(390 0) scale(-1 1)">
-        <FloralEdge />
-      </g>
-    </svg>
-  );
-}
-
-function FloralEdge() {
-  return (
-    <g>
-      <path
-        d="M4 24C48 48 18 110 14 170C36 230 8 280 22 350C46 420 10 480 26 560C52 640 14 710 28 790C40 820 16 836 8 844"
-        fill="none"
-        stroke="#8a9a7c"
-        strokeWidth="1.4"
+    <div className="veil-art" aria-hidden="true">
+      <img
+        src="/images/Antique%20Rococo.jpeg"
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover object-center"
       />
-      <Leaf x={6} y={30} rot={-55} scale={2.3} />
-      <Leaf x={52} y={14} rot={8} scale={1.8} />
-      <Leaf x={96} y={28} rot={-18} scale={1.45} />
-      <Leaf x={18} y={86} rot={75} scale={1.9} />
-      <Leaf x={78} y={72} rot={28} scale={1.35} />
-      <Wisteria x={46} y={40} count={13} />
-      <Wisteria x={90} y={16} count={15} drift={-1} />
-      <Wisteria x={22} y={58} count={9} />
-      <Orchid x={50} y={352} />
-      <Leaf x={4} y={410} rot={72} scale={2.1} />
-      <Leaf x={112} y={368} rot={-42} scale={1.55} />
-      <Leaf x={18} y={300} rot={18} scale={1.35} />
-      <Rose x={44} y={510} />
-      <Leaf x={6} y={560} rot={58} scale={1.9} />
-      <Leaf x={108} y={548} rot={-62} scale={1.65} />
-      <Lemon x={58} y={662} />
-      <Leaf x={12} y={720} rot={42} scale={1.8} />
-      <Leaf x={96} y={736} rot={-28} scale={1.55} />
-      <Leaf x={22} y={792} rot={88} scale={1.7} />
-      <Rose x={54} y={808} scale={0.58} />
-      <Leaf x={108} y={824} rot={-16} scale={1.3} />
-    </g>
-  );
-}
-
-function Leaf({ x, y, rot = 0, scale = 1 }: { x: number; y: number; rot?: number; scale?: number }) {
-  return (
-    <g transform={`translate(${x} ${y}) rotate(${rot}) scale(${scale})`}>
-      <path d="M0 0C10-16 22-18 26-4 18 10 8 12 0 0Z" fill="#d7e0cc" stroke="#6f7f64" strokeWidth="0.9" />
-      <path d="M3-1C12-10 18-10 23-5" fill="none" stroke="#8ea082" strokeWidth="0.6" />
-    </g>
-  );
-}
-
-function Wisteria({ x, y, count, drift = 1 }: { x: number; y: number; count: number; drift?: number }) {
-  return (
-    <g>
-      <path
-        d={`M${x} ${y}C${x + 12 * drift} ${y + 48} ${x - 16 * drift} ${y + 110} ${x + 4 * drift} ${y + count * 16}`}
-        fill="none"
-        stroke="#8a9a7c"
-        strokeWidth="1.5"
-      />
-      {Array.from({ length: count }, (_, index) => {
-        const cx = x + Math.sin(index * 0.85) * 9 * drift;
-        const cy = y + 16 + index * 16;
-        const blush = index % 4 === 0;
-        return (
-          <g key={index}>
-            <ellipse cx={cx - 4} cy={cy} rx="7" ry="10" fill={blush ? "#f6e4e6" : "#f8f4ee"} stroke="#d3c4b4" strokeWidth="0.9" />
-            <ellipse cx={cx + 4} cy={cy + 5} rx="6" ry="8.5" fill="#fbf7f2" stroke="#d9cbbd" strokeWidth="0.8" />
-          </g>
-        );
-      })}
-    </g>
-  );
-}
-
-function Orchid({ x, y }: { x: number; y: number }) {
-  return (
-    <g transform={`translate(${x} ${y})`}>
-      <ellipse cx="-6" cy="-24" rx="15" ry="28" fill="#fbf8f3" stroke="#d4c4b2" strokeWidth="1.2" transform="rotate(-18)" />
-      <ellipse cx="6" cy="-24" rx="15" ry="28" fill="#fbf8f3" stroke="#d4c4b2" strokeWidth="1.2" transform="rotate(18)" />
-      <ellipse cx="-30" cy="4" rx="13" ry="24" fill="#f4efe8" stroke="#d4c4b2" strokeWidth="1.2" transform="rotate(-55)" />
-      <ellipse cx="30" cy="4" rx="13" ry="24" fill="#f4efe8" stroke="#d4c4b2" strokeWidth="1.2" transform="rotate(55)" />
-      <ellipse cx="0" cy="18" rx="12" ry="22" fill="#f7f2ea" stroke="#cbb9a6" strokeWidth="1.2" />
-      <ellipse cx="0" cy="4" rx="8" ry="9" fill="#ead78a" stroke="#c6ae55" strokeWidth="0.9" />
-    </g>
-  );
-}
-
-function Rose({ x, y, scale = 1 }: { x: number; y: number; scale?: number }) {
-  return (
-    <g transform={`translate(${x} ${y}) scale(${scale})`} stroke="#cbb8a4" strokeWidth="1.15">
-      <circle r="34" fill="#f7f3ee" />
-      <path d="M-28-6c12-26 40-20 44 4 14 4 16 28 0 36-22 16-50 4-50-14 0-12 8-16 6-26z" fill="#f3ebe3" />
-      <path d="M-16-2c8-16 26-12 28 2 8 2 8 16 0 20-14 10-32 2-32-8 0-8 4-10 4-14z" fill="#f8f1ea" />
-      <circle r="9" fill="#f4e8ea" stroke="#e0cfd0" />
-    </g>
-  );
-}
-
-function Lemon({ x, y }: { x: number; y: number }) {
-  return (
-    <g transform={`translate(${x} ${y})`}>
-      <ellipse rx="26" ry="18" fill="#f2e6a4" stroke="#c9b56a" strokeWidth="1.2" transform="rotate(-16)" />
-      <ellipse rx="15" ry="9" fill="#f7efc4" transform="rotate(-16) translate(3 -2)" />
-      <path d="M2-16c6-16 16-18 22-8" fill="none" stroke="#6f7f64" strokeWidth="1.6" />
-      <Leaf x={16} y={-22} rot={-24} scale={0.85} />
-    </g>
+    </div>
   );
 }
 

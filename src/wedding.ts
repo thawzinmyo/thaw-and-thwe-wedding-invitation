@@ -66,7 +66,9 @@ export const wedding = {
   hotels: [] as { name: string; detail: string; code: string; dates: string }[],
   gift: {
     headline: "Your presence is our greatest gift.",
-    note: "Should you wish to give a gift, you may transfer in the way that suits you.",
+    note: "If you wish to give a gift, you may bring it.",
+    transferNote:
+      "A transfer is optional, if that is easier for you. Please write your name on the memo field. “Name + Wedding Gift”.",
     accounts: [
       {
         audience: "People in Thailand",

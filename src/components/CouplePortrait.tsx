@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 const frameSrc = "/images/Embossed%20Ivory%20Wedding%20Invitation%20Template.png";
-const photoSrc = "/images/she_and_me.jpg";
+const photoSrc = "/images/she_and_me.png";
 
 // Inner pearl oval of the template, inset so the pearls stay on top of the photo.
 const hole = {
@@ -210,7 +210,7 @@ export function CouplePortrait() {
   return (
     <section aria-label="Thaw and Thwe" className="flex h-full items-center justify-center bg-paper">
       <div className="relative aspect-[1043/1508] w-[min(100%,calc((100dvh-6rem)*1043/1508))]">
-        <img src={photoSrc} alt="Thaw and Thwe" className="absolute object-cover object-center" style={hole} />
+        <img src={photoSrc} alt="Thaw and Thwe" className="absolute object-cover object-[center_12%]" style={hole} />
         <canvas
           ref={canvasRef}
           tabIndex={0}

@@ -40,16 +40,16 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/she_and_me.jpg",
-        width: 760,
-        height: 1096,
+        url: "/images/she_and_me.png",
+        width: 514,
+        height: 819,
         alt: "Thaw and Thwe",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/images/she_and_me.jpg"],
+    images: ["/images/she_and_me.png"],
   },
 };
 

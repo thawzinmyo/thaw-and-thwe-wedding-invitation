@@ -79,7 +79,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 50;
-  background: #f4efe6;
+  background: #f6ead8;
   transition: opacity 700ms ease 650ms;
 }
 
@@ -133,7 +133,7 @@ body {
 
 .invite-seal {
   position: absolute;
-  top: 46%;
+  top: 62%;
   left: 50%;
   z-index: 3;
   border: 0;
