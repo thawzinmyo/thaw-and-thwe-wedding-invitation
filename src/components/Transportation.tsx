@@ -24,6 +24,10 @@ export function Transportation() {
           </span>
         </li>
       </ol>
+      <a href={wedding.phoneHref} className="mt-5 font-serif text-xl tracking-wide text-plum">
+        {wedding.phone}
+      </a>
+      <p className="mt-1 font-serif text-sm text-muted">Call if you need help finding us</p>
       <RideArt />
     </section>
   );

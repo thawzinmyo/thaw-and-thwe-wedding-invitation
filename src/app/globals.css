@@ -228,4 +228,8 @@ body {
   .romance-cameo {
     animation: none;
   }
+
+  .scratch-paper {
+    display: none;
+  }
 }

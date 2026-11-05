@@ -48,6 +48,7 @@ export function RsvpForm() {
         <p className="mx-auto mt-2 max-w-xs font-serif text-lg leading-snug text-ink/75 italic">
           Nothing would make us happier than celebrating with you.
         </p>
+        <p className="mt-2 font-serif text-base text-plum">{wedding.rsvpBy}</p>
 
         {status === "sent" ? (
           <div className="mt-6">
@@ -121,8 +122,14 @@ export function RsvpForm() {
               </label>
             )}
 
+            {attendance === "no" ? (
+              <p className="font-serif text-base leading-snug text-ink/75 italic">
+                If you cannot be with us, we would still love a blessing for our journey.
+              </p>
+            ) : null}
+
             <label className="block font-serif text-base" htmlFor="rsvp-note">
-              A note for the couple
+              {attendance === "no" ? "A wish for our journey" : "A note for the couple"}
               <textarea
                 id="rsvp-note"
                 name="note"

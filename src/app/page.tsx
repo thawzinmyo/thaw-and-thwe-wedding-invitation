@@ -4,6 +4,7 @@ import { Closing } from "@/components/Closing";
 import { Countdown } from "@/components/Countdown";
 import { DressCode } from "@/components/DressCode";
 import { EnvelopeOverlay } from "@/components/EnvelopeOverlay";
+import { CouplePortrait } from "@/components/CouplePortrait";
 import { HeroSection, LetterSection } from "@/components/HeroSection";
 import { LocationSection } from "@/components/LocationSection";
 import { OurStory } from "@/components/OurStory";
@@ -26,6 +27,11 @@ export default function HomePage() {
         <section className="invite-page" aria-label="Our story">
           <PageLace motif="wat">
             <OurStory />
+          </PageLace>
+        </section>
+        <section className="invite-page" aria-label="Thaw and Thwe">
+          <PageLace motif="house">
+            <CouplePortrait />
           </PageLace>
         </section>
         <section className="invite-page" aria-label="Invitation">

@@ -9,7 +9,10 @@ export const wedding = {
   timeLine: "8:30 AM – 1:00 PM",
   venueName: "No. 24 The Glass House",
   city: "Bangkok, Thailand",
+  address: "24, 1 Borommaratchachonnani Rd, Khwaeng Chim Phli, Taling Chan, Bangkok 10170",
   mapUrl: "https://maps.app.goo.gl/RcQhJiZdD2N8EpVg9",
+  phone: "+66 061 896 0283",
+  phoneHref: "tel:+66618960283",
   dressCode: "Dress comfortably",
   message:
     "Thaw and Thwe request the pleasure of your company as they celebrate their marriage and begin this new chapter, surrounded by the people they love most.",
@@ -83,6 +86,7 @@ export const wedding = {
       },
     ],
   },
+  rsvpBy: "Please reply by 10 December.",
   rsvpEmail: "thawzinmyo777@gmail.com",
   musicSrc: "/audio/Alex_Warren_Ordinary_Wedding_Version.mp3",
 };

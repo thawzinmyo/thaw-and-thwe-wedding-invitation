@@ -11,9 +11,9 @@ export function LocationSection() {
         {wedding.venueName.replace(" The ", "\nThe ")}
       </p>
       <p className="mt-3 text-[0.68rem] tracking-[0.32em] text-muted uppercase">{wedding.city}</p>
-      <p className="mx-auto mt-5 max-w-[18.5rem] font-serif text-[0.95rem] leading-relaxed text-ink/80">{wedding.locationLead}</p>
-      <p className="mx-auto mt-3 max-w-[18.5rem] font-serif text-[0.95rem] leading-relaxed text-ink/80">{wedding.locationNote}</p>
-      <div className="invite-float relative mt-3 h-56 w-44">
+      <p className="mx-auto mt-3 max-w-[18.5rem] font-serif text-[0.92rem] leading-snug text-ink/80">{wedding.locationLead}</p>
+      <p className="mx-auto mt-2 max-w-[18.5rem] font-serif text-[0.92rem] leading-snug text-ink/80">{wedding.locationNote}</p>
+      <div className="invite-float relative mt-2 h-48 w-40">
         <PhotoSlot
           src={wedding.photos.venue}
           alt={wedding.venueName}
@@ -38,6 +38,7 @@ export function LocationSection() {
         </svg>
         Get directions
       </a>
+      <p className="mx-auto mt-3 max-w-[18rem] font-serif text-[0.78rem] leading-snug text-ink/75">{wedding.address}</p>
     </section>
   );
 }
