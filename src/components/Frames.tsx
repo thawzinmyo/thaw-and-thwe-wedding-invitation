@@ -35,11 +35,10 @@ export function PageLace({
       <LaceEdge />
       <div className="min-h-0 flex-1 overflow-hidden">{children}</div>
       {motif ? (
-        <span className="invite-float pointer-events-none absolute right-3 bottom-14 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-pearl/90 shadow-[0_4px_10px_rgba(120,60,70,0.08)]">
+        <span className="invite-float pointer-events-none absolute right-3 bottom-8 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-pearl/90 shadow-[0_4px_10px_rgba(120,60,70,0.08)]">
           <ThaiMotif kind={motif} className="h-8 w-8" />
         </span>
       ) : null}
-      <LaceEdge flip />
     </div>
   );
 }

@@ -1,27 +1,12 @@
-export function LaceEdge({ flip = false, className = "" }: { flip?: boolean; className?: string }) {
+const laceSrc = "/images/Champagne%20Lace%20Floral%20Border.png";
+
+export function LaceEdge({ className = "" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 400 64"
-      preserveAspectRatio="none"
-      aria-hidden="true"
-      className={`block h-12 w-full ${className || "text-lace"} ${flip ? "rotate-180" : ""}`}
-    >
-      <path
-        fill="currentColor"
-        opacity="0.45"
-        d="M0 22 C18 22 28 46 50 46 C72 46 82 22 100 22 C118 22 128 46 150 46 C172 46 182 22 200 22 C218 22 228 46 250 46 C272 46 282 22 300 22 C318 22 328 46 350 46 C372 46 382 22 400 22 L400 0 L0 0 Z"
-      />
-      {Array.from({ length: 8 }, (_, index) => (
-        <g key={index} transform={`translate(${26 + index * 50} 30)`} fill="none" stroke="currentColor" strokeWidth="1.2">
-          <circle cx="0" cy="-8" r="3.2" />
-          <circle cx="6" cy="-2" r="3.2" />
-          <circle cx="3" cy="6" r="3.2" />
-          <circle cx="-4" cy="5" r="3.2" />
-          <circle cx="-6" cy="-2" r="3.2" />
-          <circle cx="0" cy="0" r="1.6" fill="currentColor" stroke="none" />
-        </g>
-      ))}
-    </svg>
+    <img
+      src={laceSrc}
+      alt=""
+      className={`pointer-events-none block w-full select-none mix-blend-multiply ${className}`}
+    />
   );
 }
 
