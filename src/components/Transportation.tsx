@@ -24,10 +24,16 @@ export function Transportation() {
           </span>
         </li>
       </ol>
-      <a href={wedding.phoneHref} className="mt-5 font-serif text-xl tracking-wide text-plum">
+      <a
+        href={wedding.phoneHref}
+        className="mt-5 inline-flex items-center gap-2 rounded-full bg-plum px-5 py-2.5 font-serif text-[1.05rem] tracking-wide text-pearl shadow-[0_6px_16px_rgba(109,63,72,0.18)]"
+      >
+        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+          <path d="M8 4.5h2.2l1.2 3-1.6 1a12 12 0 0 0 5.7 5.7l1-1.6 3 1.2V16a1.5 1.5 0 0 1-1.6 1.5A14.5 14.5 0 0 1 6.5 6.1 1.5 1.5 0 0 1 8 4.5Z" strokeLinejoin="round" />
+        </svg>
         {wedding.phone}
       </a>
-      <p className="mt-1 font-serif text-sm text-muted">Call if you need help finding us</p>
+      <p className="mt-2 font-serif text-sm text-muted">Call if you need help finding us</p>
       <RideArt />
     </section>
   );
