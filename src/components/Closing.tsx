@@ -14,7 +14,8 @@ export function Closing() {
         <p className="mt-4 text-[0.72rem] tracking-[0.22em] text-muted uppercase">{wedding.dateDisplay}</p>
       </div>
       <ClosingArt />
-      <p className="mb-1 font-serif text-sm text-muted italic">Made with love by Thaw Zin Myo</p>
+      <p className="font-serif text-sm text-muted italic">Made with love by Thaw Zin Myo</p>
+      <p className="mb-1 mt-0.5 font-serif text-xs text-muted italic">Music · Ordinary by Alex Warren</p>
     </div>
   );
 }

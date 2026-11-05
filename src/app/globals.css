@@ -79,7 +79,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 50;
-  background: #f6ead8;
+  background: #f4efe6;
   transition: opacity 700ms ease 650ms;
 }
 
@@ -115,10 +115,12 @@ body {
 
 .veil-panel-left {
   left: 0;
+  box-shadow: inset -2px 0 0 #e3d2bc;
 }
 
 .veil-panel-right {
   right: 0;
+  box-shadow: inset 2px 0 0 #efe3d2;
 }
 
 .invite-overlay.is-opening .veil-panel-left {
@@ -183,6 +185,33 @@ body {
   animation: invite-sway 3.4s ease-in-out infinite;
 }
 
+.swipe-romance {
+  position: fixed;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.romance-cameo {
+  width: min(15.5rem, 76%);
+  height: auto;
+  overflow: visible;
+  color: var(--color-plum);
+}
+
+.romance-petals {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transform: translateY(-50%);
+  overflow: visible;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .invite-overlay,
   .veil-panel,
@@ -195,7 +224,8 @@ body {
   }
 
   .invite-float,
-  .invite-seal svg {
+  .invite-seal svg,
+  .romance-cameo {
     animation: none;
   }
 }

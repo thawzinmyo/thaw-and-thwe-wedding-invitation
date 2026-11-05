@@ -10,12 +10,14 @@ import { OurStory } from "@/components/OurStory";
 import { RsvpForm } from "@/components/RsvpForm";
 import { Schedule } from "@/components/Schedule";
 import { Transportation } from "@/components/Transportation";
+import { SwipeRomance } from "@/components/SwipeRomance";
 import { WeddingGift } from "@/components/WeddingGift";
 
 export default function HomePage() {
   return (
     <EnvelopeOverlay>
       <main className="invite-pager mx-auto w-full max-w-md bg-paper sm:shadow-[0_30px_80px_rgba(120,60,70,0.18)]">
+        <SwipeRomance />
         <section className="invite-page" aria-label="The couple">
           <PageLace motif="house">
             <HeroSection />
