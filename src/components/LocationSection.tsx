@@ -13,7 +13,7 @@ export function LocationSection() {
       <p className="mt-3 text-[0.68rem] tracking-[0.32em] text-muted uppercase">{wedding.city}</p>
       <p className="mx-auto mt-5 max-w-[18.5rem] font-serif text-[0.95rem] leading-relaxed text-ink/80">{wedding.locationLead}</p>
       <p className="mx-auto mt-3 max-w-[18.5rem] font-serif text-[0.95rem] leading-relaxed text-ink/80">{wedding.locationNote}</p>
-      <div className="relative mt-3 h-56 w-44">
+      <div className="invite-float relative mt-3 h-56 w-44">
         <PhotoSlot
           src={wedding.photos.venue}
           alt={wedding.venueName}
@@ -22,16 +22,20 @@ export function LocationSection() {
           <span className="sr-only">{wedding.venueName}</span>
         </PhotoSlot>
         <svg viewBox="0 0 200 256" className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true">
-          <path d={frame} fill="none" stroke="#e4c9c6" strokeWidth="1.4" />
-          <ellipse cx="100" cy="128" rx="68" ry="94" fill="none" stroke="#f7e4e1" strokeWidth="3" />
+          <path d={frame} fill="none" stroke="#e0cbb3" strokeWidth="1.4" />
+          <ellipse cx="100" cy="128" rx="68" ry="94" fill="none" stroke="#f6ead8" strokeWidth="3" />
         </svg>
       </div>
       <a
         href={wedding.mapUrl}
         target="_blank"
         rel="noreferrer"
-        className="text-[0.65rem] tracking-[0.22em] text-ink uppercase"
+        className="mt-3 inline-flex items-center gap-2 rounded-full bg-plum px-5 py-2.5 text-[0.72rem] tracking-[0.16em] text-pearl uppercase shadow-[0_6px_16px_rgba(109,63,72,0.18)]"
       >
+        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+          <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z" strokeLinejoin="round" />
+          <circle cx="12" cy="10" r="2.2" />
+        </svg>
         Get directions
       </a>
     </section>

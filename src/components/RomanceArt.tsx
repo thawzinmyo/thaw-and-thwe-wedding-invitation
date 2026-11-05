@@ -1,5 +1,5 @@
 const art =
-  "mt-auto mb-2 w-full max-w-[19rem] text-plum [stroke-linecap:round] [stroke-linejoin:round]";
+  "invite-float mt-auto mb-2 w-full max-w-[19rem] text-plum [stroke-linecap:round] [stroke-linejoin:round]";
 
 export function CountdownArt() {
   return (

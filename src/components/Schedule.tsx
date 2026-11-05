@@ -60,11 +60,11 @@ export function Schedule() {
       <ol className="mt-4 w-full max-w-[22rem]">
         {wedding.schedule.map((event, index) => (
           <li key={event.title} className="grid grid-cols-[3.1rem_4.5rem_0.9rem_1fr] items-center gap-x-1.5 py-2 text-left">
-            <div className="text-[#b08984]">{drawings[event.icon as keyof typeof drawings]}</div>
+            <div className="invite-float text-plum">{drawings[event.icon as keyof typeof drawings]}</div>
             <p className="text-right font-serif text-[0.95rem] tracking-[0.02em] text-ink">{event.time}</p>
             <div className="relative h-full self-stretch">
               <span
-                className={`absolute left-1/2 w-px -translate-x-1/2 bg-[#cbb4ae] ${index === 0 ? "top-1/2" : "top-0"} ${index === last ? "bottom-1/2" : "bottom-0"}`}
+                className={`absolute left-1/2 w-px -translate-x-1/2 bg-[#d4c0a4] ${index === 0 ? "top-1/2" : "top-0"} ${index === last ? "bottom-1/2" : "bottom-0"}`}
               />
               <Heart />
             </div>
@@ -82,7 +82,7 @@ export function Schedule() {
 
 function TableScene() {
   return (
-    <svg viewBox="0 0 360 200" className="mt-auto mb-6 h-40 w-full max-w-[22rem] text-plum" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg viewBox="0 0 360 200" className="invite-float mt-auto mb-6 h-40 w-full max-w-[22rem] text-plum" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M0 132 L360 78" />
       <path d="M8 188 L360 128" />
       <ellipse cx="58" cy="168" rx="36" ry="8" />

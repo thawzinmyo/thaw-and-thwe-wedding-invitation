@@ -17,22 +17,22 @@ export default function HomePage() {
     <EnvelopeOverlay>
       <main className="invite-pager mx-auto w-full max-w-md bg-paper sm:shadow-[0_30px_80px_rgba(120,60,70,0.18)]">
         <section className="invite-page" aria-label="The couple">
-          <PageLace className="bg-[#f6d8d4]" motif="house">
+          <PageLace motif="house">
             <HeroSection />
           </PageLace>
         </section>
         <section className="invite-page" aria-label="Our story">
-          <PageLace className="bg-[#f4e7e3]" motif="wat">
+          <PageLace motif="wat">
             <OurStory />
           </PageLace>
         </section>
         <section className="invite-page" aria-label="Invitation">
-          <PageLace className="bg-[#f4e7e3]" motif="boat">
+          <PageLace motif="boat">
             <LetterSection />
           </PageLace>
         </section>
         <section className="invite-page">
-          <PageLace className="bg-[#f0dcc0]" motif="temple">
+          <PageLace motif="temple">
             <Countdown />
           </PageLace>
         </section>
@@ -52,7 +52,7 @@ export default function HomePage() {
           </PageLace>
         </section>
         <section className="invite-page">
-          <PageLace className="bg-[#f8e8e5]" motif="wat">
+          <PageLace motif="wat">
             <DressCode />
           </PageLace>
         </section>

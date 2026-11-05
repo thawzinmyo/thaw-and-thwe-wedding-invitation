@@ -47,7 +47,7 @@ export function RsvpForm() {
                 value={name}
                 onChange={(event) => setName(event.target.value)}
                 autoComplete="name"
-                className="mt-1 w-full border border-[#e4c9c6] bg-white/70 px-3 py-2 font-serif text-lg text-ink outline-none"
+                className="mt-1 w-full border border-[#e0cbb3] bg-white/70 px-3 py-2 font-serif text-lg text-ink outline-none"
               />
             </label>
 
@@ -63,7 +63,7 @@ export function RsvpForm() {
                   <label
                     key={value}
                     className={`cursor-pointer border px-2 py-2 text-center font-serif text-base ${
-                      attendance === value ? "border-plum bg-plum text-pearl" : "border-[#e4c9c6]"
+                      attendance === value ? "border-plum bg-plum text-pearl" : "border-[#e0cbb3]"
                     }`}
                   >
                     <input
@@ -88,7 +88,7 @@ export function RsvpForm() {
                   name="guests"
                   value={guests}
                   onChange={(event) => setGuests(event.target.value)}
-                  className="mt-1 w-full border border-[#e4c9c6] bg-white/70 px-3 py-2 font-serif text-lg text-ink outline-none"
+                  className="mt-1 w-full border border-[#e0cbb3] bg-white/70 px-3 py-2 font-serif text-lg text-ink outline-none"
                 >
                   {["1", "2", "3", "4", "5", "6"].map((count) => (
                     <option key={count} value={count}>
@@ -107,7 +107,7 @@ export function RsvpForm() {
                 rows={2}
                 value={note}
                 onChange={(event) => setNote(event.target.value)}
-                className="mt-1 w-full border border-[#e4c9c6] bg-white/70 px-3 py-2 font-serif text-lg text-ink outline-none"
+                className="mt-1 w-full border border-[#e0cbb3] bg-white/70 px-3 py-2 font-serif text-lg text-ink outline-none"
               />
             </label>
 

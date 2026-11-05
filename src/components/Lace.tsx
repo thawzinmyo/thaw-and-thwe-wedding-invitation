@@ -111,11 +111,11 @@ export function LaceVeil() {
 
   return (
     <svg viewBox="0 0 390 844" preserveAspectRatio="xMidYMid slice" className="veil-art" aria-hidden="true">
-      <rect width="390" height="844" fill="#f8e4e2" />
-      <ellipse cx="195" cy="430" rx="150" ry="280" fill="#fceeee" />
-      <path d={curtain(0)} fill="#f3d4d0" stroke="#e7c4bf" strokeWidth="1" />
-      <path d={curtain(390)} fill="#f3d4d0" stroke="#e7c4bf" strokeWidth="1" transform="translate(390 0) scale(-1 1)" />
-      <path d="M0 0h390v150C300 210 250 70 195 130 140 70 90 210 0 150Z" fill="#f3d4d0" stroke="#e7c4bf" strokeWidth="1" />
+      <rect width="390" height="844" fill="#f6ead8" />
+      <ellipse cx="195" cy="430" rx="150" ry="280" fill="#fdf7ef" />
+      <path d={curtain(0)} fill="#ead9c0" stroke="#e0cbb3" strokeWidth="1" />
+      <path d={curtain(390)} fill="#ead9c0" stroke="#e0cbb3" strokeWidth="1" transform="translate(390 0) scale(-1 1)" />
+      <path d="M0 0h390v150C300 210 250 70 195 130 140 70 90 210 0 150Z" fill="#ead9c0" stroke="#e0cbb3" strokeWidth="1" />
       {leftSprigs.map((y) => (
         <g key={y}>
           <Sprig x={28} y={y} />
@@ -245,14 +245,14 @@ export function PhotoSlot({
   );
 }
 
-const frameSrc = "/images/Dusty%20Rose%20Lace%20Invitation%20Frame.png";
+const frameSrc = "/images/Elegant%20Champagne%20Floral%20Invitation%20Frame.png";
 
 export function InvitationFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-full items-center justify-center bg-[#f6d8d4]">
+    <div className="flex h-full items-center justify-center bg-paper">
       <div className="relative aspect-[1024/1536] w-[min(100%,calc((100dvh-6rem)*1024/1536))]">
         <img src={frameSrc} alt="" className="pointer-events-none h-full w-full select-none" />
-        <div className="absolute inset-[15%_15%_14%_15%] flex flex-col items-center justify-center overflow-hidden text-center">
+        <div className="absolute inset-[18%_16%_17%_16%] flex flex-col items-center justify-center overflow-hidden text-center">
           {children}
         </div>
       </div>

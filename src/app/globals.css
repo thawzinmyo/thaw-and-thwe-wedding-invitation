@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #fceeee;
+  --color-paper: #f6ead8;
   --color-ink: #6d3f48;
   --color-muted: #9a6d74;
   --color-plum: #8f555c;
-  --color-pearl: #fff6f5;
+  --color-pearl: #fdf7ef;
   --color-lace: #e7c4bf;
-  --color-blush: #f8e4e2;
+  --color-blush: #f6ead8;
 }
 
 @theme inline {
@@ -23,7 +23,7 @@ body {
 }
 
 body {
-  background: #ecc8c5;
+  background: #e6d0b4;
   color: var(--color-ink);
 }
 
@@ -71,7 +71,7 @@ body {
 }
 
 ::selection {
-  background: #f3d4d0;
+  background: #ead9c0;
   color: var(--color-ink);
 }
 
@@ -79,7 +79,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 50;
-  background: #f8e4e2;
+  background: #f6ead8;
   transition: opacity 700ms ease 650ms;
 }
 
@@ -154,6 +154,50 @@ body {
   transform: translate(-50%, -50%) scale(0.85);
 }
 
+@keyframes invite-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes invite-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes invite-sway {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.invite-page.is-shown > * {
+  animation: invite-rise 0.9s ease both;
+}
+
+.invite-float {
+  animation: invite-float 5.6s ease-in-out infinite;
+}
+
+.invite-seal svg {
+  transform-origin: 50% 28%;
+  animation: invite-sway 3.4s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .invite-overlay,
   .veil-panel,
@@ -163,5 +207,11 @@ body {
 
   .invite-pager {
     scroll-behavior: auto;
+  }
+
+  .invite-page.is-shown > *,
+  .invite-float,
+  .invite-seal svg {
+    animation: none;
   }
 }

@@ -39,6 +39,22 @@ export function EnvelopeOverlay({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
+  useEffect(() => {
+    const pager = document.querySelector(".invite-pager");
+    if (!pager) return;
+    const pages = pager.querySelectorAll(".invite-page");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) entry.target.classList.add("is-shown");
+        }
+      },
+      { root: pager, threshold: 0.55 },
+    );
+    pages.forEach((page) => observer.observe(page));
+    return () => observer.disconnect();
+  }, []);
+
   function openInvite() {
     if (phase !== "sealed") return;
     const audio = audioRef.current;
