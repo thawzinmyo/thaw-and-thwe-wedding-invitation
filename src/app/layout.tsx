@@ -24,10 +24,33 @@ const script = Great_Vibes({
   display: "swap",
 });
 
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Thaw & Thwe — Wedding Invitation",
-  description:
-    "Join Thaw and Thwe on Wednesday, 30 December 2026 at No.24 The Glass House.",
+  description: "Join Thaw and Thwe on Wednesday, 30 December 2026 at No. 24 The Glass House.",
+  openGraph: {
+    title: "Thaw & Thwe — Wedding Invitation",
+    description: "Join Thaw and Thwe on Wednesday, 30 December 2026 at No. 24 The Glass House, Bangkok.",
+    type: "website",
+    images: [
+      {
+        url: "/images/she_and_me.jpg",
+        width: 760,
+        height: 1096,
+        alt: "Thaw and Thwe",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/she_and_me.jpg"],
+  },
 };
 
 export default function RootLayout({

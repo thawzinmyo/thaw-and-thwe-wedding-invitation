@@ -154,17 +154,6 @@ body {
   transform: translate(-50%, -50%) scale(0.85);
 }
 
-@keyframes invite-rise {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 @keyframes invite-float {
   0%,
   100% {
@@ -183,10 +172,6 @@ body {
   50% {
     transform: rotate(3deg);
   }
-}
-
-.invite-page.is-shown > * {
-  animation: invite-rise 0.9s ease both;
 }
 
 .invite-float {
@@ -209,7 +194,6 @@ body {
     scroll-behavior: auto;
   }
 
-  .invite-page.is-shown > *,
   .invite-float,
   .invite-seal svg {
     animation: none;

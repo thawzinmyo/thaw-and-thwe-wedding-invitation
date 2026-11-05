@@ -2,7 +2,7 @@
 export const wedding = {
   partnerOne: "Thaw",
   partnerTwo: "Thwe",
-  dateISO: "2026-12-30T07:00:00+07:00",
+  dateISO: "2026-12-30T23:59:59+07:00",
   dateLine: "Wednesday, 30 December 2026",
   dateDisplay: "30 December 2026",
   dateNumeric: "30.12.2026",
@@ -10,7 +10,7 @@ export const wedding = {
   venueName: "No. 24 The Glass House",
   city: "Bangkok, Thailand",
   mapUrl: "https://maps.app.goo.gl/RcQhJiZdD2N8EpVg9",
-  dressCode: "Formal Attire",
+  dressCode: "Dress comfortably",
   message:
     "Thaw and Thwe request the pleasure of your company as they celebrate their marriage and begin this new chapter, surrounded by the people they love most.",
   locationLead:
@@ -63,10 +63,26 @@ export const wedding = {
   hotels: [] as { name: string; detail: string; code: string; dates: string }[],
   gift: {
     headline: "Your presence is our greatest gift.",
-    note: "Should you wish to give a gift, you may do so by bank transfer.",
-    bank: "Bank name",
-    accountName: "Thaw and Thwe",
-    accountNumber: "0000 0000 0000",
+    note: "Should you wish to give a gift, you may transfer in the way that suits you.",
+    accounts: [
+      {
+        audience: "People in Thailand",
+        bank: "Siam Commercial Bank (SCB)",
+        accountName: "MISTER THAW ZIN MYO",
+        detailLabel: "Account number",
+        detail: "032-492961-9",
+        copyLabel: "Copy account number",
+      },
+      {
+        audience: "People from Myanmar",
+        bank: "KPay",
+        accountName: "Thaw Zi Myo",
+        detailLabel: "Phone number",
+        detail: "099 696 466 04",
+        copyLabel: "Copy phone number",
+      },
+    ],
   },
-  musicSrc: "/audio/background-song.mp3",
+  rsvpEmail: "thawzinmyo777@gmail.com",
+  musicSrc: "/audio/Alex_Warren_Ordinary_Wedding_Version.mp3",
 };

@@ -3,20 +3,42 @@
 import { useState } from "react";
 import { LaceCanopy } from "@/components/Frames";
 import { ReplyArt } from "@/components/RomanceArt";
+import { wedding } from "@/wedding";
 
 type Attendance = "yes" | "no";
+type Status = "idle" | "sending" | "sent" | "error";
 
 export function RsvpForm() {
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState<Attendance>("yes");
   const [guests, setGuests] = useState("1");
   const [note, setNote] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
 
-  function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!name.trim()) return;
-    setSubmitted(true);
+    if (!name.trim() || status === "sending") return;
+    setStatus("sending");
+    const guestName = name.trim();
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${wedding.rsvpEmail}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: guestName,
+          attendance: attendance === "yes" ? "Joyfully accept" : "Regretfully decline",
+          guests: attendance === "yes" ? guests : "0",
+          note: note.trim(),
+          _subject: `Wedding RSVP from ${guestName}`,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
+      if (!response.ok) throw new Error("RSVP was not accepted");
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -27,7 +49,7 @@ export function RsvpForm() {
           Nothing would make us happier than celebrating with you.
         </p>
 
-        {submitted ? (
+        {status === "sent" ? (
           <div className="mt-6">
             <p className="font-script text-5xl text-plum">Thank you</p>
             <p className="mt-3 font-serif text-lg leading-snug text-ink/80 italic">
@@ -113,10 +135,14 @@ export function RsvpForm() {
 
             <button
               type="submit"
-              className="w-full rounded-full border border-plum px-3 py-2.5 text-[0.65rem] tracking-[0.18em] text-plum uppercase"
+              disabled={status === "sending"}
+              className="w-full rounded-full border border-plum px-3 py-2.5 text-[0.65rem] tracking-[0.18em] text-plum uppercase disabled:opacity-60"
             >
-              Send reply
+              {status === "sending" ? "Sending" : "Send reply"}
             </button>
+            {status === "error" ? (
+              <p className="text-center font-serif text-base text-plum">Please try again in a moment.</p>
+            ) : null}
           </form>
         )}
         <ReplyArt />

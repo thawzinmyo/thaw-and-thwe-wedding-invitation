@@ -54,6 +54,12 @@ export function Countdown() {
           </ul>
         )}
         <p className="mt-8 font-serif text-lg tracking-[0.08em] text-ink">{wedding.dateDisplay}</p>
+        <a
+          href="/thaw-and-thwe-wedding.ics"
+          className="mt-6 inline-flex items-center rounded-full bg-plum px-5 py-2.5 text-[0.72rem] tracking-[0.16em] text-pearl uppercase"
+        >
+          Add to calendar
+        </a>
       </div>
       <CountdownArt />
     </section>

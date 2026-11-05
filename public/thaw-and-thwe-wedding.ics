@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Thaw and Thwe//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:thaw-thwe-wedding-20261230@invitation
+DTSTAMP:20261105T035600Z
+DTSTART:20261230T013000Z
+DTEND:20261230T060000Z
+SUMMARY:Thaw & Thwe's Wedding
+LOCATION:No. 24 The Glass House\, Bangkok\, Thailand
+DESCRIPTION:Join Thaw and Thwe at No. 24 The Glass House.\n8:30 AM – 1:00 PM\nhttps://maps.app.goo.gl/RcQhJiZdD2N8EpVg9
+END:VEVENT
+END:VCALENDAR
