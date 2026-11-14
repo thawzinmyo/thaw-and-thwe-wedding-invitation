@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Cormorant_Garamond, Great_Vibes, Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -63,7 +64,10 @@ export default function RootLayout({
       lang="en"
       className={`${sans.variable} ${serif.variable} ${script.variable}`}
     >
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
