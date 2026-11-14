@@ -9,13 +9,13 @@ export function DressCode() {
       <img
         src={wedding.photos.dressCode}
         alt="A couple dressed for the wedding celebration"
-        className="invite-float mt-3 h-auto max-h-[min(13.5rem,30dvh)] w-auto max-w-[9.25rem] object-contain"
+        className="dress-sketch invite-float mt-2 h-auto max-h-[min(22rem,42dvh)] w-auto max-w-[min(18rem,88%)] object-contain"
       />
-      <p className="mx-auto mt-3 max-w-[17rem] font-serif text-lg leading-snug text-ink/85 italic">
+      <p className="mx-auto mt-2 max-w-[17rem] font-serif text-lg leading-snug text-ink/85 italic">
         Wear whatever makes you feel lovely and at ease. There is no need to be formal. Come ready to celebrate
         with us.
       </p>
-      <BouquetArt />
+      <BouquetArt className="mt-1 h-28" />
     </section>
   );
 }

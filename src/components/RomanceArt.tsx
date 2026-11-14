@@ -34,9 +34,9 @@ export function RideArt() {
   );
 }
 
-export function BouquetArt() {
+export function BouquetArt({ className = "h-52" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 280 180" className={`${art} h-52`} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+    <svg viewBox="0 0 280 180" className={`${art} ${className}`} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
       <g transform="translate(0 6) scale(1 1.22)">
       <path d="M140 128 V62" />
       <path d="M140 96 c-28 4-40-14-30-28 M140 90 c28 4 40-14 30-28" />

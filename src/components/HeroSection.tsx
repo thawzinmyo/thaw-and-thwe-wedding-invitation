@@ -6,7 +6,7 @@ export function HeroSection() {
   return (
     <header className="hero-screen h-full">
       <InvitationFrame>
-        <p className="font-serif text-sm text-muted italic">Together with their families</p>
+        <p className="font-serif text-sm text-muted italic">Together with our families</p>
         <h1 className="hero-names mt-1 font-script text-[3.4rem] leading-none text-plum">
           {wedding.partnerOne}
           <span className="my-0.5 block font-serif text-2xl text-ink/60">&</span>

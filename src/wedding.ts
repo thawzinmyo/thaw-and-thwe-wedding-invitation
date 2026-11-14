@@ -19,7 +19,7 @@ export const wedding = {
   locationLead:
     "Set in a quiet corner of Bangkok, No. 24 The Glass House will be the setting for our celebration, filled with morning light and surrounded by the gardens of the city.",
   locationNote:
-    "We recommend arriving a little early to settle in and enjoy the surroundings before the celebration begins.",
+    "We recommend arriving a little early to settle 9:30 AM and main ceremony starts at 10:00 AM with your appreciated presence.",
   transport: {
     nearby:
       "The Glass House is closer to Taling Chan station on the Red Line than to the other stops nearby. Taling Chan is not the most convenient way to arrive.",
@@ -29,24 +29,24 @@ export const wedding = {
   photos: {
     cover: "/images/couple.jpeg",
     venue: "/images/venue.jpeg",
-    dressCode: "/images/dress-code.png",
+    dressCode: "/images/dress-code.jpeg",
   },
   schedule: [
     {
-      time: "8:30 AM",
+      time: "9:00 AM",
       title: "Welcome",
-      detail: "A welcome drink and coffee as guests arrive.",
+      detail: "Please arrive by 9:15 AM at least. A welcome drink and coffee as guests arrive. ",
       icon: "drink",
     },
     {
-      time: "9:30 AM",
+      time: "10:00 AM",
       title: "Ceremony",
-      detail: "Our marriage ceremony, held in the Myanmar traditional way.",
+      detail: "Our marriage ceremony, held in the Myanmar traditional way. Please take your seats by 9:40 AM.",
       icon: "ceremony",
     },
     {
-      time: "10:30 AM",
-      title: "Photo Session",
+      time: "10:50 AM",
+      title: "Photo Session or activities",
       detail: "A little time for photographs together.",
       icon: "photo",
     },
@@ -65,10 +65,9 @@ export const wedding = {
   ],
   hotels: [] as { name: string; detail: string; code: string; dates: string }[],
   gift: {
-    headline: "Your presence is our greatest gift.",
-    note: "If you wish to give a gift, you may bring it.",
+    note: "Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, a contribution towards our upcoming relocation and new chapter abroad would be warmly appreciated, as we are unable to carry physical items with us.",
     transferNote:
-      "A transfer is optional, if that is easier for you. Please write your name on the memo field. “Name + Wedding Gift”.",
+      "A transfer is optional, if that is easier for you. Please write your name on the note field. \"Name + Wedding Gift\".",
     accounts: [
       {
         audience: "People in Thailand",

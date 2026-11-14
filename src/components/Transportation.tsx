@@ -11,7 +11,7 @@ export function Transportation() {
         <li className="flex items-start gap-3">
           <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full border border-[#e0cbb3] font-serif text-xs text-plum">1</span>
           <span>
-            <span className="block text-lg leading-tight">Bang Wa</span>
+            <span className="block text-lg leading-tight">Bang Wa (Exit 3 or Exit 4)</span>
             <span className="text-sm text-muted">BTS Station</span>
           </span>
         </li>
